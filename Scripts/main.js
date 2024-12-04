@@ -28,7 +28,7 @@ function addMessage(text, className = "") {
 // Initialize the game
 function startGame() {
     addMessage("Welcome to the Incendium Realm!", "system-message");
-    addMessage("You are in a vast forest. Explore by typing 'north', 'south', 'east', or 'west'.", "system-message");
+    addMessage("You are in a vast world. Explore by typing 'north', 'south', 'east', or 'west'.", "system-message");
     displayCurrentTile();
     updateCoordinates(); // Display the starting coordinates
 }
@@ -36,7 +36,7 @@ function startGame() {
 // Show the current tile's description
 function displayCurrentTile() {
     const tileDescription = world.getCurrentTile();
-    addMessage(`You are at a ${tileDescription}.`, "system-message");
+    addMessage(`You are in a ${tileDescription}.`, "system-message");
 }
 
 // Handle player input
