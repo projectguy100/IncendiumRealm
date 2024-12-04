@@ -1,42 +1,36 @@
 body {
-    font-family: "Rubik", sans-serif;
-    font-style: normal;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #222;
+    color: #d4d4d4;
+    padding: 20px;
 }
 
-.version {
-    position: fixed;
-    bottom: 7px;
-    left: 10px;
+h2, .version {
+    color: #85ff85;
 }
 
-.early-access {
-    margin: auto;
-    width: 60%;
+#coordinates {
+    color: #9cef9c;
+    font-weight: bold;
+    margin-bottom: 10px; 
 }
 
 #game-container {
-    flex: 1;
-    padding: 20px;
+    white-space: pre-wrap; 
+    max-height: 400px;
     overflow-y: auto;
-    border: 2px solid #333;
-    background: #2d2d2d;
-    border-radius: 10px;
-    margin: 10px auto;
-    max-width: 90%;
-    color: #d4d4d4;
-    font-family: "Courier New", Courier, monospace;
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
 }
+
 #input-container {
     display: flex;
     gap: 10px;
-    padding: 10px;
-    background: #1e1e1e;
-    border-top: 2px solid #333;
-    max-width: 90%;
-    margin: 0 auto;
+    margin-top: 10px;
 }
+
 #player-input {
     flex: 1;
     padding: 10px;
@@ -46,6 +40,7 @@ body {
     border-radius: 5px;
     font-family: inherit;
 }
+
 #submit-btn {
     padding: 10px 20px;
     background: #007acc;
@@ -54,19 +49,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 #submit-btn:hover {
     background: #005f99;
-}
-.message {
-    margin: 10px 0;
-    line-height: 1.5;
-}
-.player-action {
-    color: #85d6ff;
-}
-.enemy-action {
-    color: #ff8585;
-}
-.system-message {
-    color: #85ff85;
 }

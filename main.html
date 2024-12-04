@@ -1,85 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Incendium Realm</title>
-<link rel="stylesheet" type="text/css" href="Style/main.css" /> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incendium Realm</title>
+    <link rel="stylesheet" type="text/css" href="Style/main.css">
 </head>
-<h2 class="early-access">In The Works! We will be back later :D</h2>
-    <p class="version">v0.1</p>
-    <div id="game-container"></div>
+<body>
+    <h2 class="early-access">Incendium Realm</h2>
+    <p class="version">Beta v0.1</p>
+    <div id="coordinates" class="coordinates">Coordinates: (0, 0)</div>
+    
+    <pre id="game-container"></pre>
+    
     <div id="input-container">
-        <input id="player-input" type="text" placeholder="Enter your action..." autocomplete="off" />
+        <input id="player-input" type="text" placeholder="Enter your action..." autocomplete="off">
         <button id="submit-btn">Submit</button>
     </div>
-
-    <script>
-        // JavaScript for the Game
-        const gameContainer = document.getElementById('game-container');
-        const playerInput = document.getElementById('player-input');
-        const submitBtn = document.getElementById('submit-btn');
-
-        const player = { name: '', health: 100, attack: 10, inventory: [] };
-        const enemy = { name: 'Goblin', health: 50, attack: 5 };
-
-        let gameStarted = false;
-
-        function addMessage(text, className = '') {
-            const message = document.createElement('div');
-            message.className = `message ${className}`;
-            message.textContent = text;
-            gameContainer.appendChild(message);
-            gameContainer.scrollTop = gameContainer.scrollHeight;
-        }
-
-        function startGame() {
-            player.name = prompt('Enter your character name:') || 'Hero';
-            addMessage(`Welcome to the adventure, ${player.name}!`, 'system-message');
-            addMessage(`You encounter a ${enemy.name}!`, 'system-message');
-            gameStarted = true;
-        }
-
-        function handleAction(action) {
-            if (action === 'attack') {
-                enemy.health -= player.attack;
-                addMessage(`You attack the ${enemy.name}! It has ${enemy.health} health left.`, 'player-action');
-
-                if (enemy.health <= 0) {
-                    addMessage(`You defeated the ${enemy.name}!`, 'system-message');
-                    return;
-                }
-
-                player.health -= enemy.attack;
-                addMessage(`The ${enemy.name} attacks you! You have ${player.health} health left.`, 'enemy-action');
-
-                if (player.health <= 0) {
-                    addMessage('You have been defeated! Game over.', 'system-message');
-                    gameStarted = false;
-                }
-            } else if (action === 'run') {
-                addMessage('You ran away safely!', 'system-message');
-                gameStarted = false;
-            } else {
-                addMessage('Invalid action! Try "attack" or "run".', 'system-message');
-            }
-        }
-
-        submitBtn.addEventListener('click', () => {
-            const action = playerInput.value.trim().toLowerCase();
-            playerInput.value = '';
-
-            if (!gameStarted) {
-                addMessage('The game is not started. Refresh to restart.', 'system-message');
-                return;
-            }
-
-            handleAction(action);
-        });
-
-        // Initialize the game
-        startGame();
-    </script>
+    
+    <script src="Scripts/world.js"></script>
+    <script src="Scripts/main.js"></script>
 </body>
-</html>
 </html>
